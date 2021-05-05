@@ -23,4 +23,8 @@ Route::middleware('api')->group(function () {
     Route::resource('/categories', \App\Http\Controllers\CategoryController::class)->except(['edit', 'create']);
     // ================================ Categories ================================
 
+    // ================================ SubCategories ================================
+    Route::resource('/sub-categories', \App\Http\Controllers\SubCategoryController::class)->except(['edit', 'create']);
+    // ================================ SubCategories ================================
+
 });
