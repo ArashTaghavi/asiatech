@@ -57,9 +57,19 @@ class FoodController extends Controller
      * @param Request $request
      * @param int $id
      * @return JsonResource
+     * @throws \Illuminate\Validation\ValidationException
      */
     public function update(Request $request, int $id): JsonResource
     {
+
+        $this->validate($request, [
+                'title' => 'required',
+                'price' => 'required|integer|max:100000000',
+                'description' => 'required',
+                'sub_category_id' => 'required|exists:sub_categories,id',
+            ]
+        );
+
         $food = Food::findOrFail($id);
 
         $food->fill($request->all());
