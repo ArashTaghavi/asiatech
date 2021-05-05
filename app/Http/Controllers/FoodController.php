@@ -99,6 +99,8 @@ class FoodController extends Controller
 
         $food->unlinkOriginalImage();
 
+        $food->delete();
+
         return new JsonResource($food);
     }
 }

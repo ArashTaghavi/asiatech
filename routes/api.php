@@ -16,7 +16,11 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('api')->group(function () {
 
     // ================================ Foods ================================
-    Route::resource('/foods', \App\Http\Controllers\FoodController::class)->except(['edit','create']);
+    Route::resource('/foods', \App\Http\Controllers\FoodController::class)->except(['edit', 'create']);
     // ================================ Foods ================================
+
+    // ================================ Categories ================================
+    Route::resource('/categories', \App\Http\Controllers\CategoryController::class)->except(['edit', 'create']);
+    // ================================ Categories ================================
 
 });

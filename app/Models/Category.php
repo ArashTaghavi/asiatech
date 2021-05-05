@@ -2,13 +2,17 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+use App\EloquentHelpers\HasImage;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Category extends Model
 {
+    use HasImage;
+
     protected $fillable = ['title', 'image'];
+
+    public $image_path = 'categories';
 
     /**
      * @return HasMany
